@@ -10,6 +10,7 @@ export class AuthService {
     const matches = document.cookie.match(
       new RegExp( `(?:^|; )${AuthService._authTokenName.replace(/([.$?*|{}() \[\]\\/+^])/g, '\\$1')}=([^;]*)`)
     );
+
     return matches ? decodeURIComponent(matches[1]) : null;
   }
 

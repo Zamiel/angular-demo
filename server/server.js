@@ -8,7 +8,6 @@ const port = 3000;
 server.use(jsonServer.defaults());
 server.use(bodyParser.urlencoded({ extended: true }));
 server.use(bodyParser.json());
-server.use(router);
 
 server.post('/login', (req, res) => {
     const { email, password } = req.body;
@@ -20,5 +19,7 @@ server.post('/login', (req, res) => {
         res.status(401).jsonp({ error: 'Invalid credentials' });
     }
 });
+
+server.use(router);
 
 server.listen(port, () => console.log(`Node server is running on http://localhost:${port}`));

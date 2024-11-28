@@ -1,8 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, Input, OnChanges } from '@angular/core';
 import { NgClass } from '@angular/common';
 import { MatMiniFabButton } from '@angular/material/button';
 import { MatIcon } from '@angular/material/icon';
-import { MatListItem, MatNavList } from '@angular/material/list';
 import { MatToolbar } from '@angular/material/toolbar';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 
@@ -13,8 +12,6 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
     MatIcon,
     MatMiniFabButton,
     NgClass,
-    MatNavList,
-    MatListItem,
     RouterLink,
     RouterLinkActive,
     MatToolbar,
@@ -22,11 +19,20 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
   templateUrl: './page-frame.component.html',
   styleUrl: './page-frame.component.scss'
 })
-export class PageFrameComponent {
+export class PageFrameComponent implements OnChanges {
+  @Input() currentUrl?: string;
+
   isSidenavOpened = true;
+  title:string = '';
   links: any[] = [
     { title: 'Home', url: '/' },
+    { title: 'Errors Board', url: '/table-errors' },
   ];
+
+  ngOnChanges() {
+    console.log(this.currentUrl);
+    this.title = this.links.find((l) => l.url === this.currentUrl)?.title;
+  }
 
   toggleSidenav() { this.isSidenavOpened = !this.isSidenavOpened; }
 }

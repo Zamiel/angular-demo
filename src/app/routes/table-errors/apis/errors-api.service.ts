@@ -12,7 +12,7 @@ export class ErrorsApiService {
   private http: HttpClient = inject(HttpClient);
 
   getDependencies(): Observable<ErrorDependencies> {
-    return this.http.get<{ priorities: Record<string, string>, status: Record<string, string> }>(`${ErrorsApiService.apiUrl}/errors:dependencies`);
+    return this.http.get<ErrorDependencies>(`${ErrorsApiService.apiUrl}/errors:dependencies`);
   }
 
   getList(): Observable<ErrorResponse[]> {

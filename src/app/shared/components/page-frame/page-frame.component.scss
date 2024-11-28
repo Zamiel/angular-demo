@@ -7,17 +7,30 @@
   display: flex;
   flex-direction: row;
 
-
   .left-side-nav {
     display: flex;
     background-color: rgb(16, 20, 20);
-    flex-direction: column;
+    flex-direction: row;
     width: 0;
     transition: width $left-side-nav-transition-time;
-    overflow: hidden auto;
 
-    mat-nav-list {
-      margin: 1rem;
+    div.links {
+      display: flex;
+      flex-direction: column;
+      overflow: hidden auto;
+      gap: 1rem;
+      margin: $toolbar-height 1rem 1rem 1rem;
+
+      a {
+        display: flex;
+        min-width: max-content;
+        text-decoration: none;
+        color: white;
+
+        &.active-link {
+          color: lightblue;
+        }
+      }
     }
 
     &.opened {

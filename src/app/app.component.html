@@ -1,7 +1,7 @@
 @if (isLogInPage) {
   <router-outlet />
 } @else {
-  <app-page-frame>
+  <app-page-frame [currentUrl]="currentUrl">
     <router-outlet />
   </app-page-frame>
 }

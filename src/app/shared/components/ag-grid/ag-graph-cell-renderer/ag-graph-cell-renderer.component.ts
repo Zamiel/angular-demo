@@ -25,7 +25,6 @@ export class AgGraphCellRendererComponent implements ICellRendererAngularComp {
 
   agInit(params: ICellRendererParams): void {
     this.chart.width = (params.column?.getActualWidth() ?? 0) - 50;
-    console.log(params.column?.getActualWidth());
     this.options = {
       series: [
         {
