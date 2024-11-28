@@ -1,0 +1,21 @@
+<div class="left-side-nav" [ngClass]="{ opened: isSidenavOpened }">
+  <mat-nav-list>
+    @for (link of links; track link.label) {
+      <mat-list-item [routerLink]="link.url" routerLinkActive="active-link">
+        {{ link.title }}
+      </mat-list-item>
+    }
+  </mat-nav-list>
+</div>
+<div class="container" [ngClass]="{ 'left-side-nav-opened': isSidenavOpened }">
+  <mat-toolbar color="primary" class="toolbar">
+    <button mat-mini-fab type="button" (click)="toggleSidenav()">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <h1>Table Errors</h1>
+  </mat-toolbar>
+
+  <div class="content">
+    <ng-content />
+  </div>
+</div>

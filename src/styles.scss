@@ -2,3 +2,16 @@
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+@import '@angular/material/prebuilt-themes/cyan-orange.css';
+@import 'ag-grid-community/styles/ag-grid.css';
+@import 'ag-grid-community/styles/ag-theme-alpine.css';
+
+.ag-theme-alpine-dark {
+  --ag-background-color: #2e3b4e; /* Dark background color */
+  --ag-header-background-color: #1c2531; /* Header background color */
+  --ag-odd-row-background-color: #243040; /* Odd row background color */
+  --ag-font-color: #e0e0e0; /* Light font color */
+  --ag-border-color: #3e4e61; /* Border color */
+}
+
